@@ -16,6 +16,7 @@ class App extends Component {
           <nav>
             <h1>Rancid Tomatillos</h1>
           </nav>
+          <Movies movies={this.state.movies} />
         </div>
       );
     }
