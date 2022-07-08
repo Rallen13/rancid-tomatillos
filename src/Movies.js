@@ -8,7 +8,7 @@ const Movies = ({movies}) => {
     <section className='movies-area'>
     <h2>Full Movie List</h2>
     <div className='movies-container'>
-          {movies.movies.map(movie => <MovieCard movie={movie} />)}
+          {movies.map(movie => <MovieCard movie={movie} />)}
     </div>
     </section>
   )

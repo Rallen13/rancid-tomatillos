@@ -3,9 +3,11 @@ import './MovieCard.css'
 
 const MovieCard = ({movie}) => {
   return (
-    <div className='movieCard'>
+    <article className='movieCard'>
+      <img src={movie.poster_path} className="moviePoster" />
       <h3>{movie.title}</h3>
-    </div>
+      <p>{movie.average_rating}</p>
+    </article>
   )
 }
 
