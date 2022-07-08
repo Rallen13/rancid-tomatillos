@@ -1,0 +1,13 @@
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.moviePoster {
+  height: 300px;
+}
