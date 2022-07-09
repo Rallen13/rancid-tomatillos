@@ -1,14 +1,18 @@
 import React from "react";
 import "./MovieDetails.css";
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ movie, closeDetails }) => {
   return (
-    <div className="detail-card">
-      <h2> {movie.title}</h2>
-      <p>
-        {movie.release_date} {movie.average_rating} {movie.rating}
-      </p>
-      {/* {movie.genres.map((genre) => {
+    <>
+      <button onClick={() => closeDetails()}>
+        <p>X</p>
+      </button>
+      <div className="detail-card">
+        <h2> {movie.title}</h2>
+        <p>
+          {movie.release_date} {movie.average_rating} {movie.rating}
+        </p>
+        {/* {movie.genres.map((genre) => {
         <div id={genre.id}>
           <p>{genre}</p>
         </div>;
@@ -18,8 +22,9 @@ const MovieDetails = ({ movie }) => {
       <p>
         {movie.budget} {movie.revenue}
       </p> */}
-    </div>
+      </div>
+    </>
   );
 };
 
-export default MovieDetails
+export default MovieDetails;

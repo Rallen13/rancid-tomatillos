@@ -17,6 +17,10 @@ class App extends Component {
     this.setState({ selectedMovie: movie.id });
   };
 
+  closeDetails = () => {
+    this.setState({ selectedMovie: 0 });
+  };
+
   render() {
     return (
       <>
@@ -24,7 +28,10 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </nav>
         {this.state.selectedMovie ? (
-          <MovieDetails movie={this.state.movies[0]} />
+          <MovieDetails
+            movie={this.state.movies[0]}
+            closeDetails={this.closeDetails}
+          />
         ) : (
           <Movies movies={this.state.movies} selectMovie={this.selectMovie} />
         )}
