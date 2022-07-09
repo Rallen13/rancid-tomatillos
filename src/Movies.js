@@ -3,12 +3,11 @@ import "./Movies.css";
 import MovieCard from "./MovieCard";
 
 const Movies = ({ movies }) => {
-  console.log(movies);
   return (
     <section className="movies-container">
-        {movies.map((movie) => (
-          <MovieCard movie={movie} />
-        ))}
+      {movies.map((movie) => (
+        <MovieCard movie={movie} />
+      ))}
     </section>
   );
 };
