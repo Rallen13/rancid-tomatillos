@@ -26,7 +26,7 @@ class App extends Component {
         {this.state.selectedMovie ? (
           <MovieDetails movie={this.state.movies[0]} />
         ) : (
-          <Movies movies={this.state.movies} />
+          <Movies movies={this.state.movies} selectMovie={this.selectMovie} />
         )}
       </>
     );
