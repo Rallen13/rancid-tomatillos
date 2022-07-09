@@ -37,8 +37,25 @@ class App extends Component {
       .catch((err) => this.setState({ error: err.message }));
   }
 
+  getSingleMovie(id) {
+    this.setState({ loading: true });
+    let fetchUrl =
+      "https://rancid-tomatillos.herokuapp.com/api/v2/movies/" + id;
+    fetch(fetchUrl)
+      .then((response) => this.checkForError(response))
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          loading: false,
+          selectedMovie: data.movie,
+        });
+      })
+      .catch((err) => this.setState({ error: err.message }));
+  }
+
   selectMovie = (movie) => {
-    this.setState({ selectedMovie: movie.id });
+    this.getSingleMovie(movie.id);
   };
 
   closeDetails = () => {

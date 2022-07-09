@@ -1,54 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import "./MovieDetails.css";
 
-class MovieDetails extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: false,
-      movie: {},
-    };
-  }
-
-  checkForError = (response) => {
-    if (response.ok) {
-      return response;
-    } else {
-      throw new Error(response.status);
-    }
-  };
-
-  componentDidMount() {
-    this.setState({ loading: true });
-    fetch(
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movie}`
-    )
-      .then((response) => this.checkForError(response))
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        this.setState({
-          loading: false,
-          movie: data.movie,
-        });
-      })
-      .catch((err) => this.setState({ error: err.message }));
-  }
-
-  render() {
-    console.log(this.props);
-    return (
-      <>
-        <button onClick={() => this.props.closeDetails()}>
-          <p>X</p>
-        </button>
-        <div className="detail-card">
-          <h2> {this.movie.title}</h2>
-          <p>
-            {this.movie.release_date} {this.movie.average_rating}{" "}
-            {this.movie.rating}
-          </p>
-          {/* {movie.genres.map((genre) => {
+const MovieDetails = ({ movie, closeDetails }) => {
+  return (
+    <>
+      <button onClick={() => closeDetails()}>
+        <p>X</p>
+      </button>
+      <div className="detail-card">
+        <h2> {movie.title}</h2>
+        <p>
+          {movie.release_date} {movie.average_rating} {movie.rating}
+        </p>
+        {movie.genres.map((genre) => {
           <div id={genre.id}>
             <p>{genre}</p>
           </div>;
@@ -57,11 +21,10 @@ class MovieDetails extends Component {
         <p>{movie.overview}</p>
         <p>
           {movie.budget} {movie.revenue}
-        </p> */}
-        </div>
-      </>
-    );
-  }
-}
+        </p>
+      </div>
+    </>
+  );
+};
 
 export default MovieDetails;
