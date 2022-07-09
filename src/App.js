@@ -8,9 +8,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      loading: false,
+      movies: [],
       selectedMovie: 0,
     };
+  }
+
+  componentDidMount() {
+    this.setState({ loading: true });
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          loading: false,
+          movies: data.movies,
+        });
+      });
   }
 
   selectMovie = (movie) => {
