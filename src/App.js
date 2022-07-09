@@ -11,19 +11,30 @@ class App extends Component {
       loading: false,
       movies: [],
       selectedMovie: 0,
+      error: "",
     };
   }
+
+  checkForError = (response) => {
+    if (response.ok) {
+      return response;
+    } else {
+      throw new Error(response.status);
+    }
+  };
 
   componentDidMount() {
     this.setState({ loading: true });
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+      .then((response) => this.checkForError(response))
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           loading: false,
           movies: data.movies,
         });
-      });
+      })
+      .catch((err) => this.setState({ error: err.message }));
   }
 
   selectMovie = (movie) => {
@@ -40,9 +51,10 @@ class App extends Component {
         <nav>
           <h1>Rancid Tomatillos</h1>
         </nav>
+        {this.state.error && <h2>{this.state.error}</h2>}
         {this.state.selectedMovie ? (
           <MovieDetails
-            movie={this.state.movies[0]}
+            movie={this.state.selectedMovie}
             closeDetails={this.closeDetails}
           />
         ) : (
