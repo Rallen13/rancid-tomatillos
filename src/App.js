@@ -12,12 +12,12 @@ class App extends Component {
     }
     render() {
       return (
-        <div>
+        <>
           <nav>
             <h1>Rancid Tomatillos</h1>
           </nav>
           <Movies movies={this.state.movies} />
-        </div>
+        </>
       );
     }
 }
