@@ -6,7 +6,7 @@ const Movies = ({ movies, selectMovie }) => {
   return (
     <section className="movies-container">
       {movies.map((movie) => (
-        <MovieCard movie={movie} selectMovie={selectMovie} />
+        <MovieCard key={movie.id} movie={movie} selectMovie={selectMovie} />
       ))}
     </section>
   );
