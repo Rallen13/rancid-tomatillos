@@ -3,6 +3,7 @@
 }
 
 body {
+  background-image: linear-gradient(black, rgb(156, 93, 156));
   background-color: black;
   color: white;
 }
