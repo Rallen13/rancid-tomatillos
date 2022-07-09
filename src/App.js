@@ -9,12 +9,12 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      isSelected: false,
+      selectedMovie: 0,
     };
   }
 
   selectMovie = (movie) => {
-    this.setState({ selectedMovie: movie.id, isSelected: true });
+    this.setState({ selectedMovie: movie.id });
   };
 
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
         <nav>
           <h1>Rancid Tomatillos</h1>
         </nav>
-        {this.state.isSelected ? (
+        {this.state.selectedMovie ? (
           <MovieDetails movie={this.state.movies[0]} />
         ) : (
           <Movies movies={this.state.movies} />
