@@ -41,14 +41,14 @@
   position: fixed;
   right: 0rem;
   top: 5rem;
-  /* filter: drop-shadow(0 0 0.75rem #ffffff); */
+  filter: drop-shadow(0 0 0.75rem #000000);
 }
 
 .close-btn p {
   color: #ffffff;
   font-size: 2rem;
   margin: 0;
-  /* font-weight: 700; */
+  font-weight: 200;
 }
 
 .detail-card-container {
