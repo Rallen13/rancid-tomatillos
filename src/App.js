@@ -5,15 +5,13 @@ import Movies from "./Movies";
 import MovieDetails from "./MovieDetails";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
+
+  state = {
       loading: false,
       movies: [],
       selectedMovie: 0,
       error: "",
     };
-  }
 
   checkForError = (response) => {
     if (response.ok) {
@@ -37,11 +35,9 @@ class App extends Component {
       .catch((err) => this.setState({ error: err.message }));
   }
 
-  getSingleMovie(id) {
+  selectMovie = (movie) => {
     this.setState({ loading: true });
-    let fetchUrl =
-      "https://rancid-tomatillos.herokuapp.com/api/v2/movies/" + id;
-    fetch(fetchUrl)
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies/" + movie.id)
       .then((response) => this.checkForError(response))
       .then((response) => response.json())
       .then((data) => {
@@ -52,10 +48,6 @@ class App extends Component {
         });
       })
       .catch((err) => this.setState({ error: err.message }));
-  }
-
-  selectMovie = (movie) => {
-    this.getSingleMovie(movie.id);
   };
 
   closeDetails = () => {

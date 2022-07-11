@@ -1,11 +1,26 @@
 .App {
   text-align: center;
+  background-color: #9c5d9c;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  position: fixed;
+  width: 100vw;
+  text-align: center;
+  top: 0;
+  background-color: rgb(25, 25, 25);
+}
+
+
 body {
-  background-image: linear-gradient(black, rgb(156, 93, 156));
-  background-color: black;
+  background: linear-gradient(black, #9c5d9c);
   color: white;
+  height: 300vh;
+  font-family: 'lato', 'light 300';
 }
 
 .App-logo {
@@ -20,7 +35,6 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
