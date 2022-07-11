@@ -3,8 +3,10 @@ import "./MovieDetails.css";
 
 const MovieDetails = ({ movie, closeDetails }) => {
   return (
-    <>
-      <button onClick={() => closeDetails()}>
+    <React.Fragment className="detail-container">
+      <img src={movie.backdrop_path} alt={movie.title} className="detail-bg" />
+      <div>
+      <button onClick={() => closeDetails()} className="close-btn">
         <p>X</p>
       </button>
       <div className="detail-card">
@@ -13,7 +15,7 @@ const MovieDetails = ({ movie, closeDetails }) => {
           {movie.release_date} {movie.average_rating} {movie.rating}
         </p>
         {movie.genres.map((genre) => {
-          <div id={genre.id}>
+          return <div id={genre.id}>
             <p>{genre}</p>
           </div>;
         })}
@@ -23,7 +25,8 @@ const MovieDetails = ({ movie, closeDetails }) => {
           {movie.budget} {movie.revenue}
         </p>
       </div>
-    </>
+      </div>
+    </React.Fragment>
   );
 };
 

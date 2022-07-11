@@ -1,0 +1,16 @@
+.detail-container {
+  position: relative;
+}
+
+.detail-bg {
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  left: 0rem;
+  top: 4.75rem;
+}
+
+.close-btn {
+
+}
+

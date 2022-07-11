@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import movieData from "./MovieData";
 import Movies from "./Movies";
 import MovieDetails from "./MovieDetails";
 
