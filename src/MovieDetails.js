@@ -11,7 +11,7 @@ const MovieDetails = ({ movie, closeDetails }) => {
   };
 
   return (
-    <div key={movie.id} style={backgroundImage}>
+    <div style={backgroundImage}>
       <div className="detail-content">
         <div className="detail-close">
           <p className="detail-header">{movie.title}</p>
@@ -21,7 +21,7 @@ const MovieDetails = ({ movie, closeDetails }) => {
         </div>
         <div className="detail-card-container">
           <div className="detail-card">
-            <h2 className="detail-title"> {movie.title}</h2>
+            <h2 className="detail-title">{movie.title}</h2>
             <p className="detail-date-rating">
               {movie.release_date.slice(0, 4)}{" "}
               <span className="seperator">|</span>{" "}
