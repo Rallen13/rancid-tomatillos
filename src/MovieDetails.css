@@ -1,17 +1,3 @@
-.detail-container {
-  position: relative;
-}
-
-.detail-bg {
-  z-index: -1;
-  position: fixed;
-  left: 0rem;
-  top: 5rem;
-  height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-}
-
 .detail-content {
   display: flex;
   flex-direction: column;
@@ -25,39 +11,91 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: rgba(250, 250, 250, .2) solid 1px;
 }
 
 .detail-header {
   text-transform: uppercase;
   font-weight: 700;
+  text-align: center;
+  flex: 1;
+  margin-left: 3rem;
 }
 
 .close-btn {
   border: none;
-  /* border-radius: 100%; */
   height: 3rem;
   width: 3rem;
   background-color: transparent;
-  position: fixed;
-  right: 0rem;
-  top: 5rem;
   filter: drop-shadow(0 0 0.75rem #000000);
 }
 
-.close-btn p {
+.close {
   color: #ffffff;
-  font-size: 2rem;
-  margin: 0;
-  font-weight: 200;
+  font-size: 2.25rem;
 }
 
 .detail-card-container {
   display: flex;
   width: 100vw;
   height: 100vh;
+  align-items: center;
 }
 
 .detail-card {
   max-width: 50%;
   padding: 1.5rem; 
+}
+
+.detail-title {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.detail-date-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.seperator {
+  margin: 0 1rem;
+}
+
+.star, .schedule {
+  font-size: 1rem;
+  margin: 0 .25rem;
+}
+
+.genre-container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: .5rem;
+}
+
+.genre-tag {
+  border-radius: 1.25rem;
+  background-color: #333333;
+  border: #666666 solid 1px;
+}
+
+.genre-tag p {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: .75rem;
+  padding: .5rem .75rem;
+}
+
+.detail-overview {
+  margin-top: 2rem;
+}
+
+.detail-money-container {
+  border-top: rgba(250, 250, 250, .5) solid 1px;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.detail-money {
+  margin: 0;
 }
