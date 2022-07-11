@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <nav>
+        <nav className="navbar">
           <h1>Rancid Tomatillos</h1>
         </nav>
         {this.state.error && <h2>{this.state.error}</h2>}

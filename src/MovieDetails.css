@@ -4,13 +4,60 @@
 
 .detail-bg {
   z-index: -1;
-  width: 100%;
-  position: absolute;
+  position: fixed;
   left: 0rem;
-  top: 4.75rem;
+  top: 5rem;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  background-image:
+  linear-gradient(to right,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0));
+}
+
+.detail-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-header {
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .close-btn {
-
+  border: none;
+  /* border-radius: 100%; */
+  height: 3rem;
+  width: 3rem;
+  background-color: transparent;
+  position: fixed;
+  right: 0rem;
+  top: 5rem;
+  /* filter: drop-shadow(0 0 0.75rem #ffffff); */
 }
 
+.close-btn p {
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0;
+  /* font-weight: 700; */
+}
+
+.detail-card-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.detail-card {
+  max-width: 50%;
+  padding: 1.5rem; 
+}
