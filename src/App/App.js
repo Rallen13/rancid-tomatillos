@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Movies from "./Movies";
-import MovieDetails from "./MovieDetails";
+import Movies from "../Movies/Movies";
+import MovieDetails from "../MovieDetails/MovieDetails";
 import { Route } from 'react-router-dom';
 
 
@@ -70,7 +70,7 @@ class App extends Component {
         ) : (
           <Movies movies={this.state.movies} selectMovie={this.selectMovie} />
         )}
-        <Route path="/" render={() => <Movies movies={this.state.movies} selectMovie={this.selectMovie} /> } />
+        <Route exact path="/" render={() => <Movies movies={this.state.movies} selectMovie={this.selectMovie} /> } />
       </>
     );
   }
