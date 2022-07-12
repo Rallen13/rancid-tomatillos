@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { getAllMovies } from "../apiCalls";
 
 
 class App extends Component {
@@ -24,9 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then((response) => this.checkForError(response))
-      .then((response) => response.json())
+    getAllMovies()
       .then((data) => {
         this.setState({
           loading: false,
@@ -42,7 +41,6 @@ class App extends Component {
       .then((response) => this.checkForError(response))
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.setState({
           loading: false,
           selectedMovie: data.movie,
@@ -52,7 +50,7 @@ class App extends Component {
   };
 
   closeDetails = () => {
-    this.setState({ selectedMovie: 0 });
+    <Link to='/' />
   };
 
   render() {
@@ -62,14 +60,7 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </nav>
         {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.selectedMovie ? (
-          <MovieDetails
-            movie={this.state.selectedMovie}
-            closeDetails={this.closeDetails}
-          />
-        ) : (
-          <Movies movies={this.state.movies} selectMovie={this.selectMovie} />
-        )}
+        <Route exact path="/:id" render={({match}) => <MovieDetails id={match.params.id} selectMovie={this.selectMovie} /> } />
         <Route exact path="/" render={() => <Movies movies={this.state.movies} selectMovie={this.selectMovie} /> } />
       </>
     );
