@@ -1,10 +1,29 @@
 html {
   font-family: 'Mulish', sans-serif;
+  }
+.App {
+  text-align: center;
+  background-color: #9c5d9c;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  position: fixed;
+  width: 100vw;
+  text-align: center;
+  top: 0;
+  background-color: rgb(25, 25, 25);
+}
+
+
 body {
-  background-color: black;
+  background: linear-gradient(black, #9c5d9c);
   color: white;
+  height: 300vh;
+  font-family: 'lato', 'light 300';
 }
 
 .navbar {
@@ -12,6 +31,10 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.App-header {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   height: 5rem;
