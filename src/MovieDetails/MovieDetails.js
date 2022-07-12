@@ -56,9 +56,11 @@ class MovieDetails extends Component {
         <div className="detail-content">
           <div className="detail-close">
             <p className="detail-header">{title}</p>
-            <button className="close-btn">
-              <span className="material-icons close">close</span>
-            </button>
+            <Link to='/'>
+              <button className="close-btn">
+                <span className="material-icons close">close</span>
+              </button>
+            </Link>
           </div>
           <div className="detail-card-container">
             <div className="detail-card">
