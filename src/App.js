@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "./Movies";
 import MovieDetails from "./MovieDetails";
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
 
@@ -68,6 +70,7 @@ class App extends Component {
         ) : (
           <Movies movies={this.state.movies} selectMovie={this.selectMovie} />
         )}
+        <Route path="/" render={() => <Movies movies={this.state.movies} selectMovie={this.selectMovie} /> } />
       </>
     );
   }
