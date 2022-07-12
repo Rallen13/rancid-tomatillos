@@ -13,14 +13,6 @@ class MovieDetails extends Component {
     };
   }
 
-  checkForError = (response) => {
-    if (response.ok) {
-      return response;
-    } else {
-      throw new Error(response.status);
-    }
-  };
-
   componentDidMount() {
     console.log(this.props.id)
     this.setState({ loading: true });
@@ -34,7 +26,6 @@ class MovieDetails extends Component {
       })
       .catch((err) => this.setState({ error: err.message }));
   }
-  
 
   render() {
     if (!this.state.movie) {
