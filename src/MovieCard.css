@@ -1,11 +1,20 @@
 .movieCard {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: grey;
+  background-color: rgb(48, 46, 46);
   width: 200px;
   border: 1px solid black;
+}
+
+h3 {
+  margin-block-end: 0;
+}
+
+p {
+  margin-block-start: .4em;
 }
 
 .moviePoster {

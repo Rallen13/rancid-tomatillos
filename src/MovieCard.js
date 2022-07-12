@@ -6,7 +6,7 @@ const MovieCard = ({ movie, selectMovie }) => {
     <article className="movieCard" onClick={() => selectMovie(movie)}>
       <img src={movie.poster_path} alt={movie.title} className="moviePoster" />
       <h3>{movie.title}</h3>
-      <p>{movie.average_rating}</p>
+      <p>Star Rating: {movie.average_rating.toFixed(1)}</p>
     </article>
   );
 };
