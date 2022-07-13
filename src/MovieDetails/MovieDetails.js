@@ -8,17 +8,15 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
-      loading: true,
+      loading: false,
       movie: null,
     };
   }
 
   componentDidMount() {
-    // console.log(this.props.id);
-    // this.setState({ loading: true });
+    this.setState({ loading: true });
     getSingleMovie(this.props.id)
       .then((data) => {
-        // console.log(data);
         this.setState({
           loading: false,
           movie: data.movie,
