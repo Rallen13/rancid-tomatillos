@@ -2,22 +2,23 @@ import React, { Component } from "react";
 import "./MovieDetails.css";
 import { Link } from "react-router-dom";
 import { getSingleMovie } from "../apiCalls";
+import Loading from "../Loading/Loading";
 
 class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
-      loading: false,
+      loading: true,
       movie: null,
     };
   }
 
   componentDidMount() {
-    console.log(this.props.id);
-    this.setState({ loading: true });
+    // console.log(this.props.id);
+    // this.setState({ loading: true });
     getSingleMovie(this.props.id)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           loading: false,
           movie: data.movie,
@@ -27,8 +28,8 @@ class MovieDetails extends Component {
   }
 
   render() {
-    if (!this.state.movie) {
-      return <h2>Whoops</h2>;
+    if (this.state.loading) {
+      return <Loading />;
     }
     const {
       backdrop_path,
@@ -84,8 +85,8 @@ class MovieDetails extends Component {
               <p className="detail-overview">{overview}</p>
               <div className="detail-money-container">
                 <p className="detail-money">
-                  Budget: ${budget} <span className="seperator">|</span>{" "}
-                  Revenue: ${revenue}
+                  Budget: {budget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} <span className="seperator">|</span>{" "}
+                  Revenue: {revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
                 </p>
               </div>
             </div>

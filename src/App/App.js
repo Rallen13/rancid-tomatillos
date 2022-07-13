@@ -4,6 +4,7 @@ import Movies from "../Movies/Movies";
 import MovieDetails from "../MovieDetails/MovieDetails";
 import { Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
+import Loading from "../Loading/Loading";
 
 class App extends Component {
   state = {
@@ -31,7 +32,7 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </nav>
         {this.state.loading && (
-          <h1>Compiling the glorious history of cinema</h1>
+          <Loading />
         )}
         {this.state.error && <h2>{this.state.error}</h2>}
         <Route
@@ -43,7 +44,7 @@ class App extends Component {
           exact
           path="/"
           render={() => (
-            <Movies movies={this.state.movies} selectMovie={this.selectMovie} />
+            <Movies movies={this.state.movies} />
           )}
         />
       </>

@@ -1,0 +1,15 @@
+.loading-container {
+  height: 100vh;
+  margin-top: 5rem;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    color: #000000;
+  }
+  100% {
+    color: #9c5d9c;
+  }
+}

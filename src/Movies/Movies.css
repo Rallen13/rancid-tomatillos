@@ -2,12 +2,12 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 2rem;
   padding: 2rem;
   background: linear-gradient(black, #9c5d9c);
   color: white;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   margin-top: 5rem;
 }

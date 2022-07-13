@@ -6,13 +6,21 @@ const linkStyle = {
   textDecoration: "none",
 };
 
-const MovieCard = ({ movie, selectMovie }) => {
+const MovieCard = ({ movie }) => {
   return (
-    <Link to={`/${movie.id}`} style={linkStyle} >
-      <article className="movieCard" onClick={() => selectMovie(movie)}>
-        <img src={movie.poster_path} alt={movie.title} className="moviePoster" />
+    <Link to={`/${movie.id}`} style={linkStyle}>
+      <article className="movieCard">
+        <img
+          src={movie.poster_path}
+          alt={movie.title}
+          className="moviePoster"
+        />
         <h3>{movie.title}</h3>
-        <p>Star Rating: {movie.average_rating.toFixed(1)}</p>
+        <p className="detail-date-rating">
+          {movie.release_date.slice(0, 4)} <span className="seperator">|</span>{" "}
+          <span className="material-icons star">star</span>
+          {movie.average_rating.toFixed(1)}
+        </p>
       </article>
     </Link>
   );
