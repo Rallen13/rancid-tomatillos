@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import "./MovieDetails.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { getSingleMovie } from "../apiCalls";
 
 class MovieDetails extends Component {
-  
   constructor() {
     super();
     this.state = {
-    loading: false,
-    movie: null
+      loading: false,
+      movie: null,
     };
   }
 
   componentDidMount() {
-    console.log(this.props.id)
+    console.log(this.props.id);
     this.setState({ loading: true });
     getSingleMovie(this.props.id)
       .then((data) => {
-        console.log(data)
+        console.log(data);
         this.setState({
           loading: false,
-          movie: data.movie
+          movie: data.movie,
         });
       })
       .catch((err) => this.setState({ error: err.message }));
@@ -29,11 +28,20 @@ class MovieDetails extends Component {
 
   render() {
     if (!this.state.movie) {
-      return (
-        <h2>Whoops</h2>
-      )
+      return <h2>Whoops</h2>;
     }
-    const {backdrop_path, title, release_date, average_rating, runtime, genres, tagline, overview, budget, revenue} = this.state.movie
+    const {
+      backdrop_path,
+      title,
+      release_date,
+      average_rating,
+      runtime,
+      genres,
+      tagline,
+      overview,
+      budget,
+      revenue,
+    } = this.state.movie;
     const backgroundImage = {
       background: `url(${backdrop_path}) no-repeat center center fixed`,
       WebkitBackgroundSize: "cover",
@@ -41,13 +49,13 @@ class MovieDetails extends Component {
       OBackgroundSize: "cover",
       backgroundSize: "cover",
     };
-  
+
     return (
-      <div style={backgroundImage}>
+      <div style={backgroundImage} className="detail-container">
         <div className="detail-content">
           <div className="detail-close">
             <p className="detail-header">{title}</p>
-            <Link to='/'>
+            <Link to="/">
               <button className="close-btn">
                 <span className="material-icons close">close</span>
               </button>
@@ -57,11 +65,9 @@ class MovieDetails extends Component {
             <div className="detail-card">
               <h2 className="detail-title">{title}</h2>
               <p className="detail-date-rating">
-                {release_date.slice(0, 4)}{" "}
-                <span className="seperator">|</span>{" "}
+                {release_date.slice(0, 4)} <span className="seperator">|</span>{" "}
                 <span className="material-icons star">star</span>{" "}
-                {average_rating.toFixed(1)}{" "}
-                <span className="seperator">|</span>{" "}
+                {average_rating.toFixed(1)} <span className="seperator">|</span>{" "}
                 <span className="material-icons schedule">schedule</span>
                 {runtime} min
               </p>
@@ -79,7 +85,7 @@ class MovieDetails extends Component {
               <div className="detail-money-container">
                 <p className="detail-money">
                   Budget: ${budget} <span className="seperator">|</span>{" "}
-                  Revenue: ${revenue} 
+                  Revenue: ${revenue}
                 </p>
               </div>
             </div>
@@ -88,6 +94,6 @@ class MovieDetails extends Component {
       </div>
     );
   }
-};
+}
 
 export default MovieDetails;
