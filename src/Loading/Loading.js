@@ -1,7 +1,7 @@
 import React from "react";
 import "./Loading.css";
 
-const Loading = ({ movies, selectMovie }) => {
+const Loading = () => {
   return (
     <section className="loading-container">
       <h2>Loading...</h2>
