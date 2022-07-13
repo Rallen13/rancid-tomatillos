@@ -2,17 +2,16 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
-
+import Loading from "../Loading/Loading";
 
 class App extends Component {
-
   state = {
-      loading: false,
-      movies: [],
-      error: "",
-    };
+    loading: false,
+    movies: [],
+    error: "",
+  };
 
   componentDidMount() {
     this.setState({ loading: true });
@@ -32,10 +31,22 @@ class App extends Component {
         <nav className="navbar">
           <h1>Rancid Tomatillos</h1>
         </nav>
-        {this.state.loading && <h1>Compiling the glorious history of cinema</h1>}
+        {this.state.loading && (
+          <Loading />
+        )}
         {this.state.error && <h2>{this.state.error}</h2>}
-        <Route exact path="/:id" render={({match}) => <MovieDetails id={match.params.id} /> } />
-        <Route exact path="/" render={() => <Movies movies={this.state.movies} selectMovie={this.selectMovie} /> } />
+        <Route
+          exact
+          path="/:id"
+          render={({ match }) => <MovieDetails id={match.params.id} />}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Movies movies={this.state.movies} />
+          )}
+        />
       </>
     );
   }

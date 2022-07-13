@@ -1,3 +1,7 @@
+.detail-container {
+  height: 100vh;
+}
+
 .detail-content {
   display: flex;
   flex-direction: column;
@@ -5,9 +9,13 @@
   linear-gradient(to right,
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0));
+  height: 100vh;
+  overflow: auto;
 }
 
 .detail-close {
+  position: sticky;
+  top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +27,7 @@
   font-weight: 700;
   text-align: center;
   flex: 1;
+  margin: 0;
   margin-left: 3rem;
 }
 
@@ -38,7 +47,8 @@
 .detail-card-container {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  margin-top: 8rem;
   align-items: center;
 }
 
@@ -64,7 +74,8 @@
 
 .star, .schedule {
   font-size: 1rem;
-  margin: 0 .25rem;
+  margin: 0;
+  margin-right: .25rem;
 }
 
 .genre-container {

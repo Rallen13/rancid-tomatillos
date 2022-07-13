@@ -1,9 +1,13 @@
 .movies-container {
-  margin-top: 5vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 20px;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(black, #9c5d9c);
+  color: white;
+  height: 100vh;
+  overflow: auto;
+  margin-top: 5rem;
 }
