@@ -79,7 +79,7 @@ class MovieDetails extends Component {
                   );
                 })}
               </div>
-              <h3>{tagline}</h3>
+              <h3 className="detail-tagline">{tagline}</h3>
               <p className="detail-overview">{overview}</p>
               <div className="detail-money-container">
                 <p className="detail-money">
