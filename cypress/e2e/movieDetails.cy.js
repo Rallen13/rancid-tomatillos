@@ -43,4 +43,28 @@ describe("Movie Details Page", () => {
         .contains("Revenue: $0");
     });
   });
+
+  describe("Movie Details Navigation", () => {
+    before(() => {
+      cy.interceptAllMoviesData();
+      // What did you name AllMoviesData?
+    });
+
+    it('Should go back to main page view when "X" button is clicked', () => {
+      cy.get(".close-btn")
+        .click()
+        .url()
+        .should("eq", "http://localhost:3000/")
+        .get(".movies-container")
+        .find(".movieCard")
+        .should("have.length", 1);
+    });
+
+    it("Should be able refresh movie info display", () => {
+      cy.interceptSingleMovieData()
+        .reload()
+        .get(".detail-title")
+        .contains("Money Plane");
+    });
+  });
 });
