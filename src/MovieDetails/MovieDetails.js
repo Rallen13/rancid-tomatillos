@@ -8,12 +8,13 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
-      loading: true,
+      loading: false,
       movie: null,
     };
   }
 
   componentDidMount() {
+    this.setState({ loading: true });
     getSingleMovie(this.props.id)
       .then((data) => {
         this.setState({
@@ -25,7 +26,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (this.state.loading || !this.state.movie) {
       return <Loading />;
     }
     const {
