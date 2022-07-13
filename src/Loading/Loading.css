@@ -3,6 +3,7 @@
   margin-top: 5rem;
   text-align: center;
   animation: pulse 2s infinite;
+  background: linear-gradient(black, #9c5d9c);
 }
 
 @keyframes pulse {
@@ -10,6 +11,6 @@
     color: #000000;
   }
   100% {
-    color: #9c5d9c;
+    color: #ffffff;
   }
 }
