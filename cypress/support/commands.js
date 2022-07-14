@@ -28,6 +28,6 @@ import allMoviesData from '../fixtures/all-movies-data.json'
 
 const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
 
-Cypress.Commands.add('StubAllMovies', () => {
+Cypress.Commands.add('stubAllMovies', () => {
     cy.intercept(baseURL, allMoviesData)
 })
