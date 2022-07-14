@@ -41,6 +41,15 @@ class MovieDetails extends Component {
       budget,
       revenue,
     } = this.state.movie;
+
+    const renderedGenres =  genres.map((genre) => {
+      return (
+        <div key={genre} className="genre-tag">
+          <p>{genre}</p>
+        </div>
+      );
+    })
+
     const backgroundImage = {
       background: `url(${backdrop_path}) no-repeat center center fixed`,
       WebkitBackgroundSize: "cover",
@@ -70,21 +79,21 @@ class MovieDetails extends Component {
                 <span className="material-icons schedule">schedule</span>
                 {runtime} min
               </p>
-              <div className="genre-container">
-                {genres.map((genre) => {
-                  return (
-                    <div key={genre} className="genre-tag">
-                      <p>{genre}</p>
-                    </div>
-                  );
-                })}
-              </div>
+              <div className="genre-container">{renderedGenres}</div>
               <h3 className="detail-tagline">{tagline}</h3>
               <p className="detail-overview">{overview}</p>
               <div className="detail-money-container">
                 <p className="detail-money">
-                  Budget: {budget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} <span className="seperator">|</span>{" "}
-                  Revenue: {revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+                  Budget:{" "}
+                  {budget.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}{" "}
+                  <span className="seperator">|</span> Revenue:{" "}
+                  {revenue.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}
                 </p>
               </div>
             </div>
