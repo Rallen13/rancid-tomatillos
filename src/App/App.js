@@ -34,7 +34,7 @@ class App extends Component {
         {this.state.loading && (
           <Loading />
         )}
-        {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.error && <h2>The Server is having problems</h2>}
         <Route
           exact
           path="/:id"

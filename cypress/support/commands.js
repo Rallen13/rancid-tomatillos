@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import allMoviesData from '../fixtures/all-movies-data.json'
+
+const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+
+Cypress.Commands.add('StubAllMovies', () => {
+    cy.intercept(baseURL, allMoviesData)
+})
