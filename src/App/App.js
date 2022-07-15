@@ -15,22 +15,25 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.setState({
+      loading: true
+    });
     getAllMovies()
       .then((data) => {
         this.setState({
           movies: data.movies,
+          loading: false
         });
       })
       .catch((err) => this.setState({ error: true }));
   }
 
   render() {
-    if (!this.state.movies && !this.state.error) {
-      return <Loading />
-    }
 
     if (this.state.error) {
       return <ErrorPage />
+    } else if (this.state.loading) {
+      return <Loading />
     }
     return (
       <>
