@@ -29,7 +29,6 @@ class App extends Component {
   }
 
   render() {
-
     if (this.state.error) {
       return <ErrorPage />
     } else if (this.state.loading) {
