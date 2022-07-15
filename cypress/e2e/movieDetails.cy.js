@@ -46,8 +46,8 @@ describe("Movie Details Page", () => {
 
   describe("Movie Details Navigation", () => {
     before(() => {
-      cy.interceptAllMoviesData();
-      // What did you name AllMoviesData?
+      cy.stubAllMovies()
+      cy.get('.movieCard').should('have.length', 40)
     });
 
     it('Should go back to main page view when "X" button is clicked', () => {
@@ -57,7 +57,7 @@ describe("Movie Details Page", () => {
         .should("eq", "http://localhost:3000/")
         .get(".movies-container")
         .find(".movieCard")
-        .should("have.length", 1);
+        .should("have.length", 40);
     });
 
     it("Should be able refresh movie info display", () => {
@@ -67,4 +67,30 @@ describe("Movie Details Page", () => {
         .contains("Money Plane");
     });
   });
+  describe('Movie Details Error', () => {
+    it("Should display error page for 500 status code", () => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+        statusCode: 500
+      })
+      cy.visit('http://localhost:3000/694919')
+        .get('.error-header')
+        .contains('Oops!')
+    })
+    it("Should display error page for 404 status code", () => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+        statusCode: 404
+      })
+      cy.visit('http://localhost:3000/694919')
+        .get('.error-header')
+        .contains('Oops!')
+    })
+    it("Should display error page for 400 status code", () => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+        statusCode: 400
+      })
+      cy.visit('http://localhost:3000/694919')
+        .get('.error-header')
+        .contains('Oops!')
+    })
+  })
 });

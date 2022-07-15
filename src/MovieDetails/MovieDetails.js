@@ -3,6 +3,7 @@ import "./MovieDetails.css";
 import { Link } from "react-router-dom";
 import { getSingleMovie } from "../apiCalls";
 import Loading from "../Loading/Loading";
+import ErrorPage from "../ErrorPage";
 
 class MovieDetails extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class MovieDetails extends Component {
     this.state = {
       loading: false,
       movie: null,
+      error: false
     };
   }
 
@@ -26,7 +28,9 @@ class MovieDetails extends Component {
   }
 
   render() {
-    if (this.state.loading || !this.state.movie) {
+    if (this.state.error) {
+      return <ErrorPage />
+    } else if (this.state.loading || !this.state.movie) {
       return <Loading />;
     }
     const {
