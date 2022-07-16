@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import { Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
 import Loading from "../Loading/Loading";
 import ErrorPage from "../ErrorPage";
@@ -37,7 +37,9 @@ class App extends Component {
     return (
       <>
         <nav className="navbar">
-          <h1>Rancid Tomatillos</h1>
+          <Link to="/" className="link-style">
+            <h1>Rancid Tomatillos</h1>
+          </Link>
         </nav>
         <Route
           exact
