@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
           alt={movie.title}
           className="moviePoster"
         />
-        <h3>{movie.title}</h3>
+        <h2>{movie.title}</h2>
         <p className="detail-date-rating">
           {movie.release_date.slice(0, 4)} <span className="seperator">|</span>{" "}
           <span className="material-icons star">star</span>
