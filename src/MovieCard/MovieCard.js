@@ -19,7 +19,9 @@ const MovieCard = ({ movie }) => {
           <p className="card-date-rating">
             {movie.release_date.slice(0, 4)}{" "}
             <span className="seperator">|</span>{" "}
-            <span className="material-icons star">star</span>
+            <span className="material-icons star" aria-label="rating">
+              star
+            </span>
             {movie.average_rating.toFixed(1)}
           </p>
         </div>
