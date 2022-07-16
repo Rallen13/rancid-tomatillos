@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "../Movies/Movies";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import { Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
 import Loading from "../Loading/Loading";
 import ErrorPage from "../ErrorPage";
@@ -16,13 +16,13 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({
-      loading: true
+      loading: true,
     });
     getAllMovies()
       .then((data) => {
         this.setState({
           movies: data.movies,
-          loading: false
+          loading: false,
         });
       })
       .catch((err) => this.setState({ error: true }));
@@ -30,21 +30,27 @@ class App extends Component {
 
   render() {
     if (this.state.error) {
-      return <ErrorPage />
+      return <ErrorPage />;
     } else if (this.state.loading) {
-      return <Loading />
+      return <Loading />;
     }
     return (
       <>
         <nav className="navbar">
-          <h1>Rancid Tomatillos</h1>
+          <Link to="/" className="link-style">
+            <h1>Rancid Tomatillos</h1>
+          </Link>
         </nav>
         <Route
           exact
           path="/:id"
           render={({ match }) => <MovieDetails id={match.params.id} />}
         />
-        <Route exact path="/" render={() => (<Movies movies={this.state.movies} /> )} />
+        <Route
+          exact
+          path="/"
+          render={() => <Movies movies={this.state.movies} />}
+        />
       </>
     );
   }
