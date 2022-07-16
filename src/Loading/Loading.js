@@ -3,7 +3,7 @@ import "./Loading.css";
 
 const Loading = () => {
   return (
-    <section className="loading-container">
+    <section className="loading-container" aria-label="loading">
       <div className="loading">
         <div className="loading__letter">L</div>
         <div className="loading__letter">o</div>
