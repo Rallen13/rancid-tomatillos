@@ -33,6 +33,7 @@
 
 .close-btn {
   border: none;
+  cursor: pointer;
   height: 3rem;
   width: 3rem;
   background-color: transparent;
