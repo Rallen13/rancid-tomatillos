@@ -11,7 +11,7 @@ class MovieDetails extends Component {
     this.state = {
       loading: false,
       movie: null,
-      error: false
+      error: false,
     };
   }
 
@@ -29,7 +29,7 @@ class MovieDetails extends Component {
 
   render() {
     if (this.state.error) {
-      return <ErrorPage />
+      return <ErrorPage />;
     } else if (this.state.loading || !this.state.movie) {
       return <Loading />;
     }
@@ -46,13 +46,13 @@ class MovieDetails extends Component {
       revenue,
     } = this.state.movie;
 
-    const renderedGenres =  genres.map((genre) => {
+    const renderedGenres = genres.map((genre) => {
       return (
         <div key={genre} className="genre-tag">
           <p>{genre}</p>
         </div>
       );
-    })
+    });
 
     const backgroundImage = {
       background: `url(${backdrop_path}) no-repeat center center fixed`,

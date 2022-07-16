@@ -1,15 +1,14 @@
-import ErrorPage from './ErrorPage'
+import ErrorPage from "./ErrorPage";
 
 export const getAllMovies = async () => {
   const response = await fetch(
     "https://rancid-tomatillos.herokuapp.com/api/v2/movies"
   );
   if (!response.ok) {
-    throw new Error(response.status)
+    throw new Error(response.status);
   } else {
     return await response.json();
   }
-  
 };
 
 export const getSingleMovie = async (id) => {
@@ -17,7 +16,7 @@ export const getSingleMovie = async (id) => {
     `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
   );
   if (!response.ok) {
-    throw new Error(response.status)
+    throw new Error(response.status);
   } else {
     return await response.json();
   }
