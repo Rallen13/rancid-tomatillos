@@ -5,13 +5,15 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import { Link, Route } from "react-router-dom";
 import { getAllMovies } from "../apiCalls";
 import Loading from "../Loading/Loading";
-import ErrorPage from "../ErrorPage";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import Search from "../Search/Search"
 
 class App extends Component {
   state = {
     loading: false,
     movies: [],
     error: false,
+    searchValue: ''
   };
 
   componentDidMount() {
@@ -23,20 +25,32 @@ class App extends Component {
         this.setState({
           movies: data.movies,
           loading: false,
+          error: 404
         });
       })
-      .catch((err) => this.setState({ error: true }));
+      .catch((err) => this.setState({ error: err }));
+  }
+
+  changeSearch = (newValue) => {
+    this.setState({searchValue: newValue})
+  }
+
+  clearInput = () => {
+    this.setState({searchValue: ''})
   }
 
   render() {
-    if (this.state.error) {
-      return <ErrorPage />;
+    let filteredMovies = this.state.movies.filter(movie => movie.title.includes(this.state.searchValue))
+    if (1 === 1) {
+      return <ErrorPage errorMessage={this.state.error}/>;
     } else if (this.state.loading) {
       return <Loading />;
     }
     return (
       <>
         <nav className="navbar">
+          <span className="material-icons search" aria-label="rating">search</span>
+          <Search searchValue={this.state.searchValue} changeSearch={this.changeSearch} />
           <Link to="/" className="link-style">
             <h1>Rancid Tomatillos</h1>
           </Link>
@@ -49,7 +63,7 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={() => <Movies movies={this.state.movies} />}
+          render={() => <Movies movies={filteredMovies} />}
         />
       </>
     );

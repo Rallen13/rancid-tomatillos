@@ -1,4 +1,4 @@
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./ErrorPage/ErrorPage";
 
 export const getAllMovies = async () => {
   const response = await fetch(

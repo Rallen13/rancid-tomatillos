@@ -1,9 +1,10 @@
 import React from "react";
 
-const ErrorPage = () => {
+const ErrorPage = ({errorMessage}) => {
   return (
     <section data-testid="error-page-element" className="error-page app">
       <h2 className="error-header">Oops!</h2>
+      <h3>{errorMessage}</h3>
       <h3 className="error-text">
         Something went wrong. Our servers need some time to catch up!
       </h3>

@@ -3,7 +3,7 @@ import "./MovieDetails.css";
 import { Link } from "react-router-dom";
 import { getSingleMovie } from "../apiCalls";
 import Loading from "../Loading/Loading";
-import ErrorPage from "../ErrorPage";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 class MovieDetails extends Component {
   constructor() {
