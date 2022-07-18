@@ -45,11 +45,11 @@ The _Rancid Tomatillos_ application was designed to display movies, display movi
 
 The goals for this project were to:
   
-   - Gain competency with React fundamentals.
-   - Work with an API to receive data.
-   - Solidify the code review process.
-   - Learn how to test React components and asynchronous JS with Cypress.
-   - Practice refactoring.
+   - Gain competency with React fundamentals
+   - Work with an API to receive data
+   - Solidify the code review process
+   - Learn how to test React components and asynchronous JS with Cypress
+   - Practice refactoring
    - Create a multi-page UX using Router
 
 This application was created using Webpack, which is a modular bundler used to group HTML, CSS, and JavaScript files into more efficient files for a browser to read.
