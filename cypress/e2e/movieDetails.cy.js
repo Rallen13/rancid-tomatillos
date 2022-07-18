@@ -33,8 +33,6 @@ describe("Movie Details Page", () => {
         .contains(82)
         .get(".genre-container")
         .contains("Action")
-        .get(".detail-tagline")
-        .eq("")
         .get(".detail-overview")
         .contains("A professional thief")
         .get(".detail-money")
@@ -51,7 +49,7 @@ describe("Movie Details Page", () => {
         .url()
         .should("eq", "http://localhost:3000/")
         .get(".movies-container")
-        .find(".movieCard")
+        .find(".movie-card")
         .should("have.length", 40);
     });
 
