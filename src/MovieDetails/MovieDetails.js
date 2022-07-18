@@ -24,7 +24,9 @@ class MovieDetails extends Component {
           movie: data.movie,
         });
       })
-      .catch((err) => this.setState({ error: err.status }));
+      .catch((err) => {
+        this.setState({ error: parseInt(err.toString().split('Error: ')[1]) })
+      });
   }
 
   render() {

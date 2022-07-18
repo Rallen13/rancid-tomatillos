@@ -5,6 +5,7 @@ export const getAllMovies = async () => {
     "https://rancid-tomatillos.herokuapp.com/api/v2/movies"
   );
   if (!response.ok) {
+    console.log(response.status)
     throw new Error(response.status);
   } else {
     return await response.json();
@@ -16,6 +17,7 @@ export const getSingleMovie = async (id) => {
     `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
   );
   if (!response.ok) {
+    console.log(response.status)
     throw new Error(response.status);
   } else {
     return await response.json();

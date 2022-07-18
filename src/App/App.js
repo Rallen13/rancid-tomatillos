@@ -27,7 +27,7 @@ class App extends Component {
           loading: false,
         });
       })
-      .catch((err) => this.setState({ error: err }));
+      .catch((err) => this.setState({ error: parseInt(err.toString().split('Error: ')[1]) }));
   }
 
   changeSearch = (newValue) => {

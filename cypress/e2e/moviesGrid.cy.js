@@ -21,26 +21,25 @@ describe('Main Page', () => {
   describe('Main Page Render', () => {
     it('should display all movies when the page has loaded', () => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMoviesData)
-      cy.get('.movieCard').should('have.length', 40)
+      cy.get('.movie-card').should('have.length', 40)
     })
   
     it('should display the proper info in a movie stub', () => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMoviesData)
-      cy.get('.movieCard').contains('Money Plane')
-      .get('.detail-date-rating').contains('2020').contains('6.9')
+      cy.get('.movie-card').get('.card-date-rating').contains('2020').contains('6.9')
     })
   });
 
   describe('Swapping to Movie Details', () => {
     it('should change the url', () => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMoviesData)
-      cy.get('.movieCard:first').click()
+      cy.get('.movie-card:first').click()
       cy.url().should('include', '/694919')
     })
   
     it('should show the movie details after swapping views', () => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMoviesData)
-      cy.get('.movieCard:first').click()
+      cy.get('.movie-card:first').click()
       cy.get(".detail-container")
         .should(
           "have.css",
@@ -56,10 +55,7 @@ describe('Main Page', () => {
         .get(".detail-date-rating")
         .contains(82)
         .get(".genre-container")
-        .contains("Action")
-        .get(".detail-tagline")
-        .eq("")
-        .get(".detail-overview")
+        .contains("Action").get(".detail-overview")
         .contains("A professional thief")
         .get(".detail-money")
         .contains("Budget: $0")
