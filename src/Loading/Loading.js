@@ -15,7 +15,7 @@ const Loading = () => {
         <div className="loading__letter">.</div>
         <div className="loading__letter">.</div>
         <div className="loading__letter">.</div>
-        <div className='loading__letter'>🍿</div>
+        <div className="loading__letter">🍿</div>
       </div>
     </section>
   );
