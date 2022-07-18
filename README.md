@@ -26,7 +26,7 @@ The _Rancid Tomatillos_ application was designed to display movies, display movi
 
 ## Illustrations
 
-![](https://vimeo.com/731164427/cfcc652adf)
+[Video of Functionality](https://vimeo.com/731164427/cfcc652adf)
 
 ## Technologies Used
 
