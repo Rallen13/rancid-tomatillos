@@ -44,21 +44,24 @@ class App extends Component {
     let filteredMovies = this.state.movies.filter((movie) =>
       movie.title.toLowerCase().includes(this.state.searchValue.toLowerCase())
     );
+
     if (this.state.error) {
       return <ErrorPage errorNumber={this.state.error} />;
     } else if (this.state.loading) {
       return <Loading />;
     }
+
+    const pathname = window.location.pathname
     return (
       <>
         <nav className="navbar">
           <Link to="/" className="link-style">
             <h1>Rancid Tomatillos</h1>
           </Link>
-          <Search
+          {pathname === "/" && <Search
             searchValue={this.state.searchValue}
             changeSearch={this.changeSearch}
-          />
+          />}
         </nav>
         <Route
           exact
