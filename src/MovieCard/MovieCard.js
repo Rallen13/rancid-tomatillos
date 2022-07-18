@@ -25,7 +25,6 @@ const MovieCard = ({ movie, clearInput }) => {
             {movie.average_rating.toFixed(1)}
           </p>
         </div>
-        {/* <h2 className="card-title">{movie.title}</h2> */}
       </article>
     </Link>
   );

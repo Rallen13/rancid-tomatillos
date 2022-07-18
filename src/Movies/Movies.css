@@ -1,13 +1,17 @@
 .movies-container {
+  height: calc(100vh - 5rem);
+  top: 5rem;
+  bottom: 0;
+  padding: 0 2rem;
+  overflow: scroll;
+
+}
+
+.movies-content {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: center;
   gap: 2rem;
-  padding: 2rem;
-  background: linear-gradient(black, #9c5d9c);
-  color: white;
-  height: 100vh;
-  overflow: auto;
-  margin-top: 5rem;
 }

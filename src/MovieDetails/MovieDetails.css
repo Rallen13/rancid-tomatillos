@@ -1,5 +1,5 @@
 .detail-container {
-  height: 100vh;
+  height: calc(100vh - 5rem);
 }
 
 .detail-content {
@@ -9,13 +9,13 @@
   linear-gradient(to right,
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0));
-  height: 100vh;
+    height: calc(100vh - 5rem);
   overflow: auto;
 }
 
 .detail-close {
   position: sticky;
-  top: 5rem;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;

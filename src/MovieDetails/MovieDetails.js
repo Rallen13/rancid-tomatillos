@@ -25,7 +25,7 @@ class MovieDetails extends Component {
         });
       })
       .catch((err) => {
-        this.setState({ error: parseInt(err.toString().split('Error: ')[1]) })
+        this.setState({ error: parseInt(err.toString().split("Error: ")[1]) });
       });
   }
 
@@ -73,7 +73,12 @@ class MovieDetails extends Component {
             </p>
             <Link to="/" className="link-style">
               <div className="close-btn">
-               <span className="material-icons close" onClick={() => this.props.clearInput()}>close</span> 
+                <span
+                  className="material-icons close"
+                  onClick={() => this.props.clearInput()}
+                >
+                  close
+                </span>
               </div>
             </Link>
           </div>
