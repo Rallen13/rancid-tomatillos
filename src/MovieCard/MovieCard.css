@@ -9,7 +9,6 @@
   color: white;
   filter: drop-shadow(0 0 0.75rem #333333);
   transition: all .2s ease-in-out;
-  padding: 1.5rem 0;
 }
 
 .movie-card:hover { transform: scale(1.1); }

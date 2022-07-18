@@ -13,5 +13,5 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 0 2rem;
+  gap: 2rem;
 }
