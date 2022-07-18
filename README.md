@@ -39,6 +39,7 @@ https://user-images.githubusercontent.com/98505112/173729446-f6a8773b-03df-4e72-
 - Cypress testing
 - Normalize.css
 - Webpack
+- Deployment on Heroku
 
 ## Context and Features
 
@@ -65,6 +66,7 @@ A controlled form was utilized to allow a user to search for a movie from the na
 
 Accesibility & Error Handling was implemented within the application and form. The application scored a 100% accessibility rating in a _Lighthouse Accessibility Audit_, is fully tabable, and can be used with a screen reader. 
 
+Finally, this application was deployed on Heroku. The Heroku platform uses Git as the primary means for deploying applications. When you create an application on Heroku, it associates a new Git remote, typically named heroku, with the local Git repository for your application. As a result, deploying code is just the familiar git push, but to the heroku remote instead. Deployment then, is about moving your application from your local system to Heroku - and Heroku provides several ways in which apps can be deployed.
 
 ## Future Features
 
@@ -107,3 +109,8 @@ Some future features that could be added to this application are:
 
 The specs for this application can be found 
 [HERE](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html) 
+
+## Deployed Link
+
+The deployed link for this application can be found 
+[HERE](https://powerful-basin-82276.herokuapp.com/) 
