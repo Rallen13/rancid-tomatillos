@@ -4,6 +4,9 @@ import "./Search.css";
 const Search = ({ searchValue, changeSearch }) => {
   return (
     <form>
+      <span className="material-icons search" aria-label="search">
+        search
+      </span>
       <input
         className="search-field"
         type="text"

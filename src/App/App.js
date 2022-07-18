@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     let filteredMovies = this.state.movies.filter((movie) =>
-      movie.title.includes(this.state.searchValue)
+      movie.title.toLowerCase().includes(this.state.searchValue.toLowerCase())
     );
     if (this.state.error) {
       return <ErrorPage errorNumber={this.state.error} />;
@@ -55,9 +55,6 @@ class App extends Component {
           <Link to="/" className="link-style">
             <h1>Rancid Tomatillos</h1>
           </Link>
-          <span className="material-icons search" aria-label="rating">
-            search
-          </span>
           <Search
             searchValue={this.state.searchValue}
             changeSearch={this.changeSearch}
