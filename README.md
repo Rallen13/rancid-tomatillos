@@ -58,7 +58,7 @@ This application utilizes NPM packages including `normalize.css`, `react-router-
 
 React Router is a library that allowed us to make our single page React application mimic the behavior of a multipage app. It provided the ability to use browser history, allowing users to navigate with forward / back buttons and bookmark links to specific views of the app. Most modern sites use some form of routing. React Router exposes this functionality through a series of components. We got some practice with refactoring in order to implement React Router properly within our application.
 
-End-to-end testing was utilized in the development process for this application. Testing with Cypress aims to address the pain points developers of QA engineers face while testing and application. Cypress is a more developer-friendly tool that uses a unique DOM manipulation teachnique and operates directly in the browser, making asynchronous testing simple and convenient. All user flows, views, happy & sad paths, async functionality, and components were successfully tested.
+End-to-end testing was utilized in the development process for this application. Testing with Cypress aims to address the pain points developers or QA engineers face while testing an application. Cypress is a more developer-friendly tool that uses a unique DOM manipulation teachnique and operates directly in the browser, making asynchronous testing simple and convenient. All user flows, views, happy & sad paths, async functionality, and components were successfully tested.
 
 The application fetches data from a web API with Async / Await and displays data for movies. 
 
