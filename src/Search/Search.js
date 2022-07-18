@@ -5,7 +5,7 @@ const Search = ({ searchValue, changeSearch }) => {
   return (
     <form>
       <input
-        className="searchField"
+        className="search-field"
         type="text"
         placeholder="search"
         name="searchValue"

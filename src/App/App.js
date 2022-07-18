@@ -52,6 +52,9 @@ class App extends Component {
     return (
       <>
         <nav className="navbar">
+          <Link to="/" className="link-style">
+            <h1>Rancid Tomatillos</h1>
+          </Link>
           <span className="material-icons search" aria-label="rating">
             search
           </span>
@@ -59,9 +62,6 @@ class App extends Component {
             searchValue={this.state.searchValue}
             changeSearch={this.changeSearch}
           />
-          <Link to="/" className="link-style">
-            <h1>Rancid Tomatillos</h1>
-          </Link>
         </nav>
         <Route
           exact
