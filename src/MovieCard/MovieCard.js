@@ -6,10 +6,10 @@ const linkStyle = {
   textDecoration: "none",
 };
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, clearInput }) => {
   return (
     <Link to={`/${movie.id}`} style={linkStyle}>
-      <article className="movie-card">
+      <article className="movie-card" onClick={() => clearInput()}>
         <img
           src={movie.poster_path}
           alt={movie.title}

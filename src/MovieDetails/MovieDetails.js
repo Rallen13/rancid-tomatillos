@@ -24,12 +24,12 @@ class MovieDetails extends Component {
           movie: data.movie,
         });
       })
-      .catch((err) => this.setState({ error: err.message }));
+      .catch((err) => this.setState({ error: err.status }));
   }
 
   render() {
     if (this.state.error) {
-      return <ErrorPage />;
+      return <ErrorPage errorNumber={this.state.error} />;
     } else if (this.state.loading || !this.state.movie) {
       return <Loading />;
     }
@@ -71,7 +71,7 @@ class MovieDetails extends Component {
             </p>
             <Link to="/" className="link-style">
               <div className="close-btn">
-                <span className="material-icons close">close</span>
+               <span className="material-icons close" onClick={() => this.props.clearInput()}>close</span> 
               </div>
             </Link>
           </div>

@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     loading: false,
     movies: [],
-    error: false,
+    error: null,
     searchValue: ''
   };
 
@@ -25,7 +25,6 @@ class App extends Component {
         this.setState({
           movies: data.movies,
           loading: false,
-          error: 404
         });
       })
       .catch((err) => this.setState({ error: err }));
@@ -41,8 +40,8 @@ class App extends Component {
 
   render() {
     let filteredMovies = this.state.movies.filter(movie => movie.title.includes(this.state.searchValue))
-    if (1 === 1) {
-      return <ErrorPage errorMessage={this.state.error}/>;
+    if (this.state.error) {
+      return <ErrorPage errorNumber={this.state.error}/>;
     } else if (this.state.loading) {
       return <Loading />;
     }
@@ -58,12 +57,12 @@ class App extends Component {
         <Route
           exact
           path="/:id"
-          render={({ match }) => <MovieDetails id={match.params.id} />}
+          render={({ match }) => <MovieDetails clearInput={this.clearInput} id={match.params.id} />}
         />
         <Route
           exact
           path="/"
-          render={() => <Movies movies={filteredMovies} />}
+          render={() => <Movies movies={filteredMovies} clearInput={this.clearInput}  />}
         />
       </>
     );
