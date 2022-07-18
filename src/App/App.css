@@ -4,8 +4,13 @@ html {
   background-color: #000000;
   }
 
+body {
+  background: linear-gradient(black, #9c5d9c);
+  color: white;
+}
+
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   display: flex;
